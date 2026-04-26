@@ -28,6 +28,7 @@ class TaskController extends Controller
             'description' => ['nullable', 'string'],
             'status'      => ['required', 'in:todo,doing,done'],
             'priority'    => ['required', 'in:low,medium,high'],
+            'album_number' => ['required', 'string'],
         ]);
 
         $task = Task::create($validated);
@@ -49,6 +50,7 @@ class TaskController extends Controller
             'description' => ['nullable', 'string'],
             'status'      => ['sometimes', 'in:todo,doing,done'],
             'priority'    => ['sometimes', 'in:low,medium,high'],
+            'album_number' => ['sometimes', 'string'],
         ]);
 
         $task->update($validated);
